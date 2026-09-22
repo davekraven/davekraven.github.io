@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="升空高飞下载 - 提供升空高飞软件的安全下载、安装教程、功能介绍及版本更新资讯，助您轻松体验高效办公与云端协作。">
+    <meta name="keywords" content="升空高飞下载, 升空高飞软件, 软件下载, 办公软件, 效率工具">
+    <title>升空高飞下载 - 高效云端办公与效率工具平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary-color: #1e293b;
+            --accent-color: #3b82f6;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border-color);
+            background: transparent;
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 24px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Download Section */
+        .download-section {
+            padding: 80px 0;
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .download-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .download-info h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .download-info p {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .version-list {
+            margin-bottom: 32px;
+        }
+
+        .version-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            margin-bottom: 12px;
+            background: #fff;
+        }
+
+        .version-info strong {
+            display: block;
+            color: var(--text-main);
+        }
+
+        .version-info span {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .version-links a {
+            margin-left: 12px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+
+        .version-links a:hover {
+            text-decoration: underline;
+        }
+
+        .download-card {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            color: white;
+            text-align: center;
+        }
+
+        .download-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .download-card p {
+            opacity: 0.8;
+            margin-bottom: 24px;
+        }
+
+        .file-size {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 24px;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 24px;
+        }
+
+        .faq-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faq-item h4::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .faq-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 60px 0 24px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            margin-top: 12px;
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-grid, .download-container, .stats-grid, .faq-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .header-inner {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 12px 0;
+            }
+
+            nav {
+                order: 3;
+                width: 100%;
+                margin-top: 12px;
+            }
+
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .version-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .version-links {
+                width: 100%;
+            }
+            
+            .version-links a {
+                margin: 0 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                升空高飞
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#features">功能介绍</a></li>
+                    <li><a href="#download">软件下载</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#download" class="btn btn-primary">立即下载</a>
+                <a href="#" class="btn btn-outline">登录</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <h1>释放潜能，让工作与生活<br>升空高飞</h1>
+                    <p>升空高飞是一款专为现代团队设计的效率协作平台。通过智能任务管理、云端同步和实时数据看板，帮助您轻松掌控工作进度，实现业务的高速增长。</p>
+                    <div class="hero-buttons">
+                        <a href="#download" class="btn btn-primary">免费下载</a>
+                        <a href="#features" class="btn btn-outline">了解功能</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://picsum.photos/seed/skyrocket/600/400" alt="升空高飞软件界面展示" width="600" height="400">
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-bar">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <h3>100W+</h3>
+                    <p>活跃用户</p>
+                </div>
+                <div class="stat-item">
+                    <h3>99.9%</h3>
+                    <p>服务在线率</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>行业覆盖</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.9</h3>
+                    <p>用户评分</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>为什么选择升空高飞？</h2>
+                    <p>全方位的功能支持，满足您多样化的业务需求</p>
+                </div>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="3" y1="9" x2="21" y2="9"></line>
+                                <line x1="9" y1="21" x2="9" y2="9"></line>
+                            </svg>
+                        </div>
+                        <h3>可视化任务管理</h3>
+                        <p>采用看板与甘特图相结合的方式，让项目进度一目了然，支持拖拽操作，极大提升团队协作效率。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                        </div>
+                        <h3>多端云端同步</h3>
+                        <p>数据实时云端备份，支持Windows、Mac、iOS及Android全平台登录，随时随地处理工作，永不丢失文件。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <h3>团队权限管控</h3>
+                        <p>精细化的成员权限分配功能，支持部门级管理，确保企业数据安全，规范团队协作流程。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="download-section">
+            <div class="container download-container">
+                <div class="download-info">
+                    <h2>安全下载，即刻体验</h2>
+                    <p>我们提供经过严格测试的稳定版本，支持最新操作系统。请根据您的设备类型选择对应的安装包，安装过程简单快捷。</p>
+                    
+                    <div class="version-list">
+                        <div class="version-item">
+                            <div class="version-info">
+                                <strong>升空高飞 专业版 v3.2.1</strong>
+                                <span>发布日期：2023年10月 | 适用于 Windows 10/11</span>
+                            </div>
+                            <div class="version-links">
+                                <a href="#" onclick="return false;">Windows 64位</a>
+                                <a href="#" onclick="return false;">Windows 32位</a>
+                            </div>
+                        </div>
+                        <div class="version-item">
+                            <div class="version-info">
+                                <strong>升空高飞 Mac 版 v3.2.1</strong>
+                                <span>发布日期：2023年10月 | 适用于 macOS 12+</span>
+                            </div>
+                            <div class="version-links">
+                                <a href="#" onclick="return false;">Mac Intel芯片</a>
+                                <a href="#" onclick="return false;">Mac Apple芯片</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 4px;">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                        所有下载文件均由官方服务器提供，已通过杀毒软件扫描，确保无毒无广告。
+                    </p>
+                </div>
+
+                <div class="download-card">
+                    <h3>获取最新版本</h3>
+                    <p>立即开始使用升空高飞，开启高效工作之旅</p>
+                    <span class="file-size">v3.2.1 | 45.2 MB</span>
+                    <div style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+                        <a href="#" class="btn btn-primary" style="width: 100%;">立即下载</a>
+                        <a href="#" class="btn btn-outline" style="border-color: rgba(255,255,255,0.3); color: white;">查看更新日志</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题解答</h2>
+                    <p>关于升空高飞下载与使用，您可能关心这些问题</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4>下载后如何安装？</h4>
+                        <p>解压下载的压缩包，双击安装程序，按照向导提示完成安装即可。安装过程无需额外配置。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>软件是否永久免费？</h4>
+                        <p>升空高飞提供基础免费版本，功能完整；同时提供高级订阅服务，解锁更多高级数据分析功能。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>支持离线使用吗？</h4>
+                        <p>是的，安装完成后软件支持完全离线操作，数据仅在联网状态下进行云端同步。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>下载速度慢怎么办？</h4>
+                        <p>建议使用高速网络环境下载，或联系客服获取专属加速链接。官方服务器已部署全球节点。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        升空高飞
+                    </a>
+                    <p>致力于为全球用户提供最优质的效率工具，让每一次协作都充满价值。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>产品服务</h4>
+                    <ul>
+                        <li><a href="#">功能介绍</a></li>
+                        <li><a href="#">价格方案</a></li>
+                        <li><a href="#">更新日志</a></li>
+                        <li><a href="#">API文档</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助支持</h4>
+                    <ul>
+                        <li><a href="#">使用教程</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">联系客服</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 升空高飞科技. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
