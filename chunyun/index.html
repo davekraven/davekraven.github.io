@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="春韵-四季轮回中的自然之美与人文感悟。探索春日诗词、摄影作品、踏青攻略及传统文化中的春天意象，感受万物复苏的季节魅力。">
+    <meta name="keywords" content="春韵, 春天, 诗词, 摄影, 踏青, 四季">
+    <title>春韵-四季轮回中的自然之美与人文感悟</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #81c784;
+            --accent-color: #ffb74d;
+            --bg-color: #f9fbf9;
+            --text-main: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+            font-size: 0.9rem;
+            width: 200px;
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary-color);
+            width: 240px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://picsum.photos/seed/spring_hero/1920/1080') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 30px;
+            font-weight: bold;
+            transition: var(--transition);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Featured Poems */
+        .poems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .poem-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .poem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .poem-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .poem-author {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .poem-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        /* Photography Showcase */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px;
+            color: var(--white);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Guide Section */
+        .guide-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .guide-main {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .guide-sidebar {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .guide-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .guide-card h3 {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .guide-card h3::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .guide-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            color: var(--text-light);
+        }
+
+        .guide-list li:last-child {
+            border-bottom: none;
+        }
+
+        .guide-list li a {
+            transition: color 0.2s;
+        }
+
+        .guide-list li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            background-color: #fff;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: #f1f8e9;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 20px;
+            background-color: #fafafa;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 20px;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        .icon-plus {
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .icon-plus {
+            transform: rotate(45deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #263238;
+            color: #cfd8dc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #37474f;
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .guide-container {
+                flex-direction: column;
+            }
+
+            .search-box {
+                display: none; /* Simplify for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">春<span>韵</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#poems">古韵诗词</a></li>
+                    <li><a href="#gallery">光影瞬间</a></li>
+                    <li><a href="#guide">踏青攻略</a></li>
+                    <li><a href="#faq">常见问答</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索春日诗词或美景...">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>春韵</h1>
+                <p>万物复苏，生机盎然。在诗词中寻找古人的春日情怀，在镜头下捕捉自然的灵动之美。</p>
+                <div class="hero-btns">
+                    <a href="#gallery" class="btn">浏览美景</a>
+                    <a href="#poems" class="btn btn-outline">品读诗词</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Poems -->
+        <section id="poems">
+            <div class="container">
+                <div class="section-header">
+                    <h2>古韵诗词</h2>
+                    <p>穿越千年时光，感受历代文人墨客笔下的春日意境与情感寄托。</p>
+                </div>
+                <div class="poems-grid">
+                    <article class="poem-card">
+                        <h3 class="poem-title">《春晓》</h3>
+                        <p class="poem-author">[唐] 孟浩然</p>
+                        <div class="poem-content">
+                            春眠不觉晓，处处闻啼鸟。<br>
+                            夜来风雨声，花落知多少。
+                        </div>
+                    </article>
+                    <article class="poem-card">
+                        <h3 class="poem-title">《钱塘湖春行》</h3>
+                        <p class="poem-author">[唐] 白居易</p>
+                        <div class="poem-content">
+                            孤山寺北贾亭西，水面初平云脚低。<br>
+                            几处早莺争暖树，谁家新燕啄春泥。
+                        </div>
+                    </article>
+                    <article class="poem-card">
+                        <h3 class="poem-title">《游园不值》</h3>
+                        <p class="poem-author">[宋] 叶绍翁</p>
+                        <div class="poem-content">
+                            应怜屐齿印苍苔，小扣柴扉久不开。<br>
+                            春色满园关不住，一枝红杏出墙来。
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photography Gallery -->
+        <section id="gallery" style="background-color: #f1f8e9;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>光影瞬间</h2>
+                    <p>记录季节更替中的色彩与生命力，定格属于春日的温暖记忆。</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/spring1/400/300" alt="春日花海">
+                        <div class="gallery-overlay">
+                            <h4>繁花似锦</h4>
+                            <p>樱花盛开的季节，粉色的海洋</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/spring2/400/300" alt="垂柳依依">
+                        <div class="gallery-overlay">
+                            <h4>杨柳依依</h4>
+                            <p>江边垂柳随风摇曳的柔美姿态</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/spring3/400/300" alt="嫩草新绿">
+                        <div class="gallery-overlay">
+                            <h4>绿意盎然</h4>
+                            <p>大地回春，新绿覆盖了荒野</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/spring4/400/300" alt="春雨绵绵">
+                        <div class="gallery-overlay">
+                            <h4>烟雨江南</h4>
+                            <p>春雨如丝，朦胧了整个世界</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide">
+            <div class="container">
+                <div class="section-header">
+                    <h2>踏青指南</h2>
+                    <p>如何更好地享受春日时光？从穿搭、装备到最佳观赏地点的建议。</p>
+                </div>
+                <div class="guide-container">
+                    <div class="guide-main">
+                        <div class="guide-card">
+                            <h3>春季出行注意事项</h3>
+                            <p>春季气候多变，温差较大。建议采用“洋葱式”穿衣法，便于穿脱。同时，春季是过敏高发期，易过敏人群建议佩戴口罩，并随身携带抗过敏药物。</p>
+                        </div>
+                        <div class="guide-card">
+                            <h3>赏花地图推荐</h3>
+                            <ul class="guide-list">
+                                <li><a href="#">【江南】无锡鼋头渚（樱花）</a></li>
+                                <li><a href="#">【西南】婺源（油菜花）</a></li>
+                                <li><a href="#">【北方】洛阳（牡丹）</a></li>
+                                <li><a href="#">【高原】林芝（桃花）</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <aside class="guide-sidebar">
+                        <div class="guide-card">
+                            <h3>热门话题</h3>
+                            <ul class="guide-list">
+                                <li><a href="#">露营野餐装备清单</a></li>
+                                <li><a href="#">春季摄影构图技巧</a></li>
+                                <li><a href="#">适合踏青的徒步路线</a></li>
+                                <li><a href="#">春季养生食谱</a></li>
+                            </ul>
+                        </div>
+                        <div class="guide-card" style="background-color: var(--primary-color); color: white;">
+                            <h3>关注我们</h3>
+                            <p style="font-size: 0.9rem; margin-top: 10px;">获取更多春日灵感与摄影技巧，加入我们的春日摄影社群。</p>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" style="background-color: #fff;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问答</h2>
+                    <p>关于春韵与春季生活的常见问题解答。</p>
+                </div>
+                <div class="faq-container" style="max-width: 800px; margin: 0 auto;">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            春季什么时候最适宜出游？
+                            <span class="icon-plus">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>通常在3月至5月之间。这段时间气温回升，万物生长，但需注意避开清明等高峰人流时段。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            春季摄影有哪些特别的构图建议？
+                            <span class="icon-plus">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>利用前景的嫩芽或花朵增加层次感；尝试逆光拍摄花瓣的透明质感；利用水面的倒影增加画面的虚实结合。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            古诗词中的“春”通常象征什么？
+                            <span class="icon-plus">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>在古诗词中，“春”往往象征着生机、希望、爱情以及美好的时光，但也常被用来表达惜春、伤春的愁绪。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于春韵</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">春韵致力于传播自然之美与传统文化，通过诗词、摄影与游记，让更多人感受到四季轮回的魅力。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>栏目导航</h4>
+                    <ul>
+                        <li><a href="#">古韵诗词</a></li>
+                        <li><a href="#">光影摄影</a></li>
+                        <li><a href="#">踏青攻略</a></li>
+                        <li><a href="#">节气文化</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>邮箱：contact@chunyun.com</li>
+                        <li>电话：400-123-4567</li>
+                        <li>地址：四季大道创意园A座</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 春韵网 版权所有 | 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
