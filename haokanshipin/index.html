@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>好看视频 - 海量高清视频内容聚合平台</title>
+    <meta name="description" content="好看视频是字节跳动旗下优质视频聚合平台，提供海量高清短视频、长视频、影视解说、生活技巧及娱乐资讯。支持多端同步，随时随地观看精彩内容。">
+    <meta name="keywords" content="好看视频,短视频,长视频,高清视频,影视推荐,生活技巧,娱乐资讯">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #fe2d46;
+            --secondary-color: #ff7a7a;
+            --bg-color: #f8f8f8;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-sub: #999999;
+            --border-color: #e5e5e5;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 600px;
+            margin: 0 var(--spacing-lg);
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 16px;
+            padding-right: 40px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            background-color: #f5f5f5;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .search-bar input:focus {
+            background-color: #fff;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(254, 45, 70, 0.1);
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 6px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-sub);
+            cursor: pointer;
+            padding: 6px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        /* 首屏 Hero */
+        .hero {
+            padding: var(--spacing-lg) 0;
+            background: linear-gradient(135deg, #fff0f1 0%, #ffffff 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 36px;
+            margin-bottom: var(--spacing-md);
+            color: #1a1a1a;
+            line-height: 1.3;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: var(--spacing-lg);
+            max-width: 600px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: var(--radius-md);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #e0203a;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-main);
+        }
+
+        .hero-banner {
+            background: url('https://picsum.photos/seed/hero/600/350') center/cover no-repeat;
+            border-radius: var(--radius-lg);
+            height: 350px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-banner::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+        }
+
+        /* 分类导航 */
+        .category-nav {
+            background-color: var(--card-bg);
+            padding: var(--spacing-md) 0;
+            margin-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .category-list {
+            display: flex;
+            gap: var(--spacing-lg);
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 4px;
+        }
+
+        .category-item {
+            font-size: 15px;
+            color: var(--text-sub);
+            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: 16px;
+            transition: all 0.2s;
+        }
+
+        .category-item:hover {
+            color: var(--primary-color);
+            background-color: #fff0f1;
+        }
+
+        .category-item.active {
+            color: #fff;
+            background-color: var(--primary-color);
+        }
+
+        /* 内容区域 */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            bottom: 4px;
+            width: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-more {
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        .section-more:hover {
+            color: var(--primary-color);
+        }
+
+        /* 视频网格 */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--spacing-lg) var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .video-card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .video-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            border-color: rgba(254, 45, 70, 0.2);
+        }
+
+        .card-thumb {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #eee;
+            overflow: hidden;
+        }
+
+        .card-thumb img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .video-card:hover .card-thumb img {
+            transform: scale(1.05);
+        }
+
+        .duration-badge {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background-color: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .card-info {
+            padding: var(--spacing-md);
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: var(--spacing-sm);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .author-avatar {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #ddd;
+        }
+
+        /* 特色专栏/榜单 */
+        .featured-section {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        .rank-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .rank-item {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: flex-start;
+        }
+
+        .rank-num {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ddd;
+            width: 24px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .rank-item:nth-child(1) .rank-num { color: #ff9800; }
+        .rank-item:nth-child(2) .rank-num { color: #ffc107; }
+        .rank-item:nth-child(3) .rank-num { color: #cd7f32; }
+
+        .rank-content h4 {
+            font-size: 15px;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .rank-content p {
+            font-size: 13px;
+            color: var(--text-sub);
+        }
+
+        .topic-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background-color: #f0f0f0;
+            color: var(--text-main);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .tag:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* 热门话题区 */
+        .topics-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .topic-card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            text-align: center;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .topic-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto var(--spacing-sm);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .topic-title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .topic-count {
+            font-size: 12px;
+            color: var(--text-sub);
+            margin-top: 4px;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #fff;
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            margin-top: var(--spacing-lg);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-col h5 {
+            font-size: 16px;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-main);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-desc {
+            font-size: 14px;
+            color: var(--text-sub);
+            line-height: 1.6;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 13px;
+            color: #999;
+            border-top: 1px solid #f0f0f0;
+            padding-top: var(--spacing-lg);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-banner {
+                height: 250px;
+            }
+            .featured-section {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .search-bar {
+                display: none;
+            }
+            .topics-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            .topics-container {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 28px;
+            }
+            .header-inner {
+                padding: 0 var(--spacing-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                好看视频<span>.</span>
+            </a>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="搜索精彩短视频、长视频、影视...">
+                <button type="button" aria-label="搜索">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">视频</a>
+                <a href="#">直播</a>
+                <a href="#">短视频</a>
+                <a href="#">创作者中心</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Banner -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <h1>发现生活的美好，<br>尽在好看视频</h1>
+                    <p>海量高清短视频、长视频内容聚合平台。无论是影视解说、生活技巧，还是娱乐资讯，这里都有您想看的精彩。</p>
+                    <div class="cta-group">
+                        <a href="#" class="btn btn-primary">立即观看</a>
+                        <a href="#" class="btn btn-outline">投稿创作</a>
+                    </div>
+                </div>
+                <div class="hero-banner" role="img" aria-label="热门推荐封面"></div>
+            </div>
+        </section>
+
+        <!-- 分类导航 -->
+        <div class="container">
+            <div class="category-nav">
+                <ul class="category-list">
+                    <li class="category-item active">推荐</li>
+                    <li class="category-item">影视</li>
+                    <li class="category-item">搞笑</li>
+                    <li class="category-item">科技</li>
+                    <li class="category-item">生活</li>
+                    <li class="category-item">美食</li>
+                    <li class="category-item">旅行</li>
+                    <li class="category-item">游戏</li>
+                    <li class="category-item">汽车</li>
+                    <li class="category-item">时尚</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 热门话题 -->
+        <div class="container">
+            <section class="topics-container">
+                <article class="topic-card">
+                    <div class="topic-icon" style="background-color: #ffebee; color: #ff5252;">🔥</div>
+                    <div class="topic-title">世界杯精彩瞬间</div>
+                    <div class="topic-count">2.3亿热度</div>
+                </article>
+                <article class="topic-card">
+                    <div class="topic-icon" style="background-color: #e3f2fd; color: #2196f3;">🎬</div>
+                    <div class="topic-title">年度高分电影</div>
+                    <div class="topic-count">1.8亿热度</div>
+                </article>
+                <article class="topic-card">
+                    <div class="topic-icon" style="background-color: #e8f5e9; color: #4caf50;">🍳</div>
+                    <div class="topic-title">懒人快手菜</div>
+                    <div class="topic-count">9500万热度</div>
+                </article>
+                <article class="topic-card">
+                    <div class="topic-icon" style="background-color: #fff3e0; color: #ff9800;">🚗</div>
+                    <div class="topic-title">新车评测</div>
+                    <div class="topic-count">6200万热度</div>
+                </article>
+            </section>
+        </div>
+
+        <!-- 热门推荐 -->
+        <div class="container">
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">热门推荐</h2>
+                    <a href="#" class="section-more">查看更多 ></a>
+                </div>
+                <div class="video-grid">
+                    <article class="video-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/video1/400/225" alt="视频封面">
+                            <span class="duration-badge">12:45</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">2024年最新科技趋势解析：人工智能如何改变我们的生活？</h3>
+                            <div class="card-meta">
+                                <div class="author-info">
+                                    <img src="https://picsum.photos/seed/avatar1/32/32" class="author-avatar" alt="用户头像">
+                                    <span>科技前沿</span>
+                                </div>
+                                <span>24万次播放</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="video-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/video2/400/225" alt="视频封面">
+                            <span class="duration-badge">08:20</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">周末去哪儿？揭秘国内最值得去的10个隐秘美景地</h3>
+                            <div class="card-meta">
+                                <div class="author-info">
+                                    <img src="https://picsum.photos/seed/avatar2/32/32" class="author-avatar" alt="用户头像">
+                                    <span>旅行日记</span>
+                                </div>
+                                <span>18万次播放</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="video-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/video3/400/225" alt="视频封面">
+                            <span class="duration-badge">15:30</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">十分钟学会做正宗红烧肉，肥而不腻，入口即化！</h3>
+                            <div class="card-meta">
+                                <div class="author-info">
+                                    <img src="https://picsum.photos/seed/avatar3/32/32" class="author-avatar" alt="用户头像">
+                                    <span>大厨教你做</span>
+                                </div>
+                                <span>56万次播放</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="video-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/video4/400/225" alt="视频封面">
+                            <span class="duration-badge">05:12</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">猫咪搞笑合集：这届铲屎官太难带了</h3>
+                            <div class="card-meta">
+                                <div class="author-info">
+                                    <img src="https://picsum.photos/seed/avatar4/32/32" class="author-avatar" alt="用户头像">
+                                    <span>萌宠星球</span>
+                                </div>
+                                <span>102万次播放</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="video-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/video5/400/225" alt="视频封面">
+                            <span class="duration-badge">22:10</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">深度解析：为什么说这部经典老电影至今无法超越？</h3>
+                            <div class="card-meta">
+                                <div class="author-info">
+                                    <img src="https://picsum.photos/seed/avatar5/32/32" class="author-avatar" alt="用户头像">
+                                    <span>影评人老王</span>
+                                </div>
+                                <span>89万次播放</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="video-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/video6/400/225" alt="视频封面">
+                            <span class="duration-badge">10:05</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">新手健身指南：在家也能练出马甲线，只需这三招</h3>
+                            <div class="card-meta">
+                                <div class="author-info">
+                                    <img src="https://picsum.photos/seed/avatar6/32/32" class="author-avatar" alt="用户头像">
+                                    <span>健身达人</span>
+                                </div>
+                                <span>45万次播放</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+
+        <!-- 编辑精选 -->
+        <div class="container">
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">编辑精选</h2>
+                    <a href="#" class="section-more">查看更多 ></a>
+                </div>
+                <div class="featured-section">
+                    <div class="rank-list">
+                        <article class="rank-item">
+                            <span class="rank-num">1</span>
+                            <div class="rank-content">
+                                <h4>【独家】2024全球十大最美海滩评选结果公布</h4>
+                                <p>旅行攻略 · 3天前</p>
+                            </div>
+                        </article>
+                        <article class="rank-item">
+                            <span class="rank-num">2</span>
+                            <div class="rank-content">
+                                <h4>程序员如何优雅地度过35岁危机？</h4>
+                                <p>职场干货 · 1天前</p>
+                            </div>
+                        </article>
+                        <article class="rank-item">
+                            <span class="rank-num">3</span>
+                            <div class="rank-content">
+                                <h4>这才是正宗的四川火锅底料做法，学会了在家吃</h4>
+                                <p>美食制作 · 5小时前</p>
+                            </div>
+                        </article>
+                        <article class="rank-item">
+                            <span class="rank-num">4</span>
+                            <div class="rank-content">
+                                <h4>这部纪录片拍出了中国式家庭的温情与无奈</h4>
+                                <p>影视推荐 · 2天前</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="tags-area">
+                        <h4>热门标签</h4>
+                        <div class="topic-tags" style="margin-top: 12px;">
+                            <a href="#" class="tag">#减肥食谱</a>
+                            <a href="#" class="tag">#数码评测</a>
+                            <a href="#" class="tag">#治愈系风景</a>
+                            <a href="#" class="tag">#宠物日常</a>
+                            <a href="#" class="tag">#历史解密</a>
+                            <a href="#" class="tag">#情感治愈</a>
+                            <a href="#" class="tag">#职场沟通</a>
+                            <a href="#" class="tag">#手工DIY</a>
+                        </div>
+                        <div style="margin-top: 24px; background: #f9f9f9; padding: 16px; border-radius: 8px;">
+                            <h4 style="font-size: 14px; margin-bottom: 8px;">下载好看视频APP</h4>
+                            <p style="font-size: 12px; color: #666; margin-bottom: 12px;">随时随地，想看就看</p>
+                            <button class="btn btn-primary" style="font-size: 13px; padding: 8px 16px;">立即下载</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h5>关于好看视频</h5>
+                    <p class="footer-desc">好看视频是字节跳动旗下优质视频聚合平台，致力于为用户提供海量、高清、有趣的视频内容，涵盖影视、搞笑、科技、生活等各个领域。</p>
+                </div>
+                <div class="footer-col">
+                    <h5>探索</h5>
+                    <ul>
+                        <li><a href="#">首页推荐</a></li>
+                        <li><a href="#">直播大厅</a></li>
+                        <li><a href="#">创作者中心</a></li>
+                        <li><a href="#">会员福利</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>帮助</h5>
+                    <ul>
+                        <li><a href="#">用户反馈</a></li>
+                        <li><a href="#">社区规范</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>关注我们</h5>
+                    <ul>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">官方B站</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 好看视频 版权所有</p>
+                <p style="margin-top: 8px; color: #bbb;">本页面为演示设计，非实际官方网站</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                                                  </html>
