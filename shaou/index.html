@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>沙欧-自然生态与园艺观赏指南</title>
+    <meta name="description" content="沙欧，一种独特的观赏植物。本站提供沙欧的品种分类、种植养护技巧、开花习性及常见病虫害防治指南，帮助您打造独特的室内生态景观。">
+    <meta name="keywords" content="沙欧, 观赏植物, 室内园艺, 沙欧种植, 植物养护">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2d6a4f;
+            --secondary-color: #40916c;
+            --accent-color: #d8f3dc;
+            --text-main: #1b4332;
+            --text-light: #52b788;
+            --bg-body: #f8f9fa;
+            --bg-card: #ffffff;
+            --spacing-unit: 1rem;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary-color);
+        }
+
+        .header-actions button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: background-color 0.3s;
+        }
+
+        .header-actions button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: none;
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-box button {
+            padding: 0 1.5rem;
+            background-color: var(--accent-color);
+            color: var(--text-main);
+            border: none;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* Feature Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* Care Guide */
+        .care-guide {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .care-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .step-item::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 1.5rem;
+            font-weight: bold;
+        }
+
+        .step-item h4 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-bottom: 4rem;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            background-color: #fff;
+            transition: background-color 0.2s;
+        }
+
+        .faq-question:hover {
+            background-color: #f0f4f3;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: #555;
+            display: none;
+            border-top: 1px solid #eee;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item:not(.active) .faq-question::after {
+            content: '+';
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1b4332;
+            color: white;
+            padding: 3rem 0;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1.2rem;
+            color: var(--accent-color);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.74 5.74c2.56 2.56 2.56 6.71 0 9.27s-6.71 2.56-9.27 0-2.56-6.71 0-9.27L12 2.69z"/><path d="M12 2.69v19.62"/></svg>
+                沙欧<span>百科</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#about">植物简介</a></li>
+                    <li><a href="#care">养护指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button>加入社区</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>探索沙欧的自然之美</h1>
+            <p>沙欧是一种极具观赏价值的植物，以其独特的叶片纹理和优雅的生长姿态深受园艺爱好者喜爱。了解如何正确种植与养护，让您的家居环境焕发生机。</p>
+            <div class="search-box">
+                <input type="text" placeholder="搜索养护技巧、品种或病虫害...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <section id="about" class="features-grid">
+            <article class="feature-card">
+                <span class="feature-icon">🌿</span>
+                <h3>植物简介</h3>
+                <p>沙欧（学名：Santalum album，俗称檀香沙欧）原产于热带地区。它不仅具有极高的观赏价值，其木材更是珍贵的香料来源，是集观赏与实用于一体的珍稀植物。</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon">🌡️</span>
+                <h3>生长习性</h3>
+                <p>沙欧喜温暖湿润的气候，不耐寒。它喜欢充足的散射光，避免强烈的直射阳光。适宜的生长温度在20-30摄氏度之间，空气湿度对它的生长至关重要。</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon">🛡️</span>
+                <h3>观赏价值</h3>
+                <p>其叶片厚实油亮，四季常青，花色淡雅。作为盆栽植物，沙欧能有效净化空气，调节室内湿度，为居住空间增添一份宁静与雅致。</p>
+            </article>
+        </section>
+
+        <section id="care" class="care-guide">
+            <div class="section-title">
+                <h2>沙欧养护全指南</h2>
+                <p>掌握以下关键步骤，轻松养出健康茂盛的沙欧</p>
+            </div>
+            <div class="care-steps">
+                <div class="step-item" data-step="1">
+                    <h4>光照管理</h4>
+                    <p>将沙欧放置于明亮散射光处。夏季需适当遮阴，防止叶片灼伤；冬季可增加光照，促进光合作用。</p>
+                </div>
+                <div class="step-item" data-step="2">
+                    <h4>浇水技巧</h4>
+                    <p>遵循“见干见湿”原则。土壤表面干燥后再浇水，浇水要浇透。避免积水导致根部腐烂。</p>
+                </div>
+                <div class="step-item" data-step="3">
+                    <h4>土壤选择</h4>
+                    <p>使用疏松透气、排水良好的微酸性土壤。建议使用腐叶土、泥炭土与珍珠岩按比例混合。</p>
+                </div>
+                <div class="step-item" data-step="4">
+                    <h4>施肥频率</h4>
+                    <p>生长期（春夏季）每两周施一次稀薄液肥。秋季逐渐减少施肥，冬季停止施肥，以免造成肥害。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section">
+            <div class="section-title">
+                <h2>常见问题解答</h2>
+                <p>关于沙欧种植的疑问与解答</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">沙欧叶子发黄是什么原因？</div>
+                <div class="faq-answer">
+                    <p>沙欧叶子发黄通常由以下原因引起：1. 浇水过多导致烂根；2. 光照过强或过弱；3. 土壤长期未更换导致板结。建议检查土壤湿度，调整光照位置，必要时进行换盆。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">沙欧在室内能养活吗？</div>
+                <div class="faq-answer">
+                    <p>沙欧可以在室内养殖，但需要满足通风良好且光照充足的条件。如果室内光线不足，建议定期将其移至阳台或窗边接受光照。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">沙欧多久需要换盆一次？</div>
+                <div class="faq-answer">
+                    <p>一般建议每年春季为沙欧换盆一次。如果盆土严重板结或根系已经长满花盆，应及时换盆，以提供充足的生长空间。</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于沙欧</h4>
+                    <p style="color: #ccc; font-size: 0.9rem;">沙欧百科致力于为园艺爱好者提供最专业的植物养护知识，打造植物爱好者交流的平台。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">植物图鉴</a></li>
+                        <li><a href="#">养护日志</a></li>
+                        <li><a href="#">病虫害防治</a></li>
+                        <li><a href="#">工具推荐</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li><a href="#">加入社群</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">商务合作</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 沙欧百科 版权所有 | 本站内容仅供学习参考
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ 交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                item.querySelector('.faq-question').addEventListener('click', function() {
+                    // 关闭其他打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项状态
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
